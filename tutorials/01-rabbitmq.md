@@ -1,6 +1,6 @@
-##1、准备
+## 1、准备
 
-###1.1 依赖
+### 1.1 依赖
 
 > 
 > ![](http://i.imgur.com/gSTjU1I.png)
@@ -32,7 +32,7 @@
 
 ![](http://i.imgur.com/HTTFvgW.png)
 
-##2、	代码实现
+## 2、	代码实现
 
 这里的案例是参考官网的案例
 
@@ -47,7 +47,7 @@
     import com.rabbitmq.client.Channel;
     
 
-###2.1 发送(Sending)
+### 2.1 发送(Sending)
 
     package com.symbol.rabbitmq;
     
@@ -83,7 +83,7 @@
     }
 
 
-###2.2 接收（Receiving）
+### 2.2 接收（Receiving）
 
 主要使用到的包
 
@@ -143,26 +143,26 @@
     }
  
 
-##3、	测试
+## 3、	测试
 
-###3.1  Send 发送器发送消息 “Hello World!” 并且退出
+### 3.1  Send 发送器发送消息 “Hello World!” 并且退出
 
 ![](http://i.imgur.com/XC3WORD.png)
 
 
-###3.2 接收器接收消息
+### 3.2 接收器接收消息
 
 > 接收到一次消息，并等待消息
 
 ![](http://i.imgur.com/ZCECj2P.png)
 
-###3.3 再次发送，接收器接收消息
+### 3.3 再次发送，接收器接收消息
 
 ![](http://i.imgur.com/84ilQgE.png)
 
 基本的实现已经完成了
 
-##4、基本原理
+## 4、基本原理
 
 > RabbitMQ 相当于一个消息的代理人，其中最主要的想法是非常简单的：
 > 
@@ -172,14 +172,14 @@
 > 
 > 如此而来，可以象征性地把 RabbitMQ 当成是一个邮箱、一个邮局和快递员。
 
-###4.1 生产者 `producer`
+### 4.1 生产者 `producer`
 > 
 > 生产仅仅意味着发送。发送消息的程序是一个生产者，这里用 P 代替说明：
 <div align="center">
 <img src="http://i.imgur.com/R48K9Dd.png" />
 </div>
 
-###4.2 队列 `queue` 
+### 4.2 队列 `queue` 
 
 > 一个队列相当于邮箱，它生存在 RabbitMQ 的内部，尽管信息流通过RabbitMQ和应用程序，
 > 
@@ -193,7 +193,7 @@
 <img src="http://i.imgur.com/VNt6pEc.png" />
 </div>
 
-###4.3 消费者 `consumer` 
+### 4.3 消费者 `consumer` 
 
 
 > 消费的意思可以看做是接收。消费者是一个主要是等待接收消息的程序。
@@ -204,7 +204,7 @@
 <img src="http://i.imgur.com/mw1725b.png" />
 </div>
 
-###4.4 生产者推送消息
+### 4.4 生产者推送消息
 
 > 生产者发送消息，推到RabbitMQ队列中。
 <div align="center">

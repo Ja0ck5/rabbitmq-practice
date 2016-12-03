@@ -1,8 +1,8 @@
 
-#Work Queues 工作队列
+# Work Queues 工作队列
 
-##1、实现代码
-###1.1  NewTask 创建任务
+## 1、实现代码
+### 1.1  NewTask 创建任务
 
     package com.symbol.rabbitmq.worker;
     
@@ -56,7 +56,7 @@
     }
 
 
-###1.2 工人消费处理任务
+### 1.2 工人消费处理任务
 
 
     package com.symbol.rabbitmq.worker;
@@ -119,22 +119,22 @@
     }
 
 
-###1.3、测试
-###1.3.1 执行 `NewTask`
+### 1.3、测试
+### 1.3.1 执行 `NewTask`
 复杂度说明：
 模拟的每条消息的复杂度为 3 ，即三个 `.` (点)
 
 ![](http://i.imgur.com/kZz8DLg.png)
 
 
-###1.3.2执行 Worker
+### 1.3.2执行 Worker
 
 每隔三秒打印输出一条消息
 
 ![](http://i.imgur.com/97ny5Fa.png)
 
 
-###1.3.3、代码解析
+### 1.3.3、代码解析
 
 > 在本教程的前面部分中，我们发送了一个包含 “Hello World!”的消息。 
 > 
@@ -171,7 +171,7 @@
 		}
 	}
 
-##2、Round-robin dispatching 轮询调度
+## 2、Round-robin dispatching 轮询调度
 
 >
 > 使用任务队列的优点是容易并行工作的能力。如果我们积累了大量的工作，我们可以增加更多的工人，这样的方式，使得规模伸缩容易。
@@ -180,19 +180,19 @@
 > 
 > 这种分配消息方式称为**轮询**。
 
-###2.1 先开启两个 Worker 
+### 2.1 先开启两个 Worker 
 
  
 > 即 Worker 代码执行两遍
 
 ![](http://i.imgur.com/mT1oOyM.png)
 
-###2.2 再开启NewTask
+### 2.2 再开启NewTask
 
 ![](http://i.imgur.com/e338kH5.png)
 
 
-###2.3 查看两个 Worker 接收任务的情况
+### 2.3 查看两个 Worker 接收任务的情况
 
 **第一个 Worker 接收 Taksk 情况如下：**
 
@@ -205,7 +205,7 @@
 这是非常典型的轮询调度。
 
 
-##3、Message acknowledgment 消息确认
+## 3、Message acknowledgment 消息确认
 
 
 > 做一个任务可以花几秒。你可能会想知道，
@@ -243,15 +243,15 @@
 		boolean autoAck = true;
 		channel.basicConsume(TASK_QUEUE_NAME, autoAck, consumer);
 
-###3.1设置为true 
+### 3.1设置为true 
 
 打开两个 worker ,并当接收消息时，kill其中一个 worker。会出现以下情况：
 
 **即，当某一个worker 死亡，RabbitMq 还是会将消息发送给它，导致消息丢失，另一个 Worker 继续接收 轮询调度 而来的消息**
 
 ![](http://i.imgur.com/2CYc5iz.png)
-
-###3.2设置为false
+ 
+### 3.2设置为false
 
        /**
 		 * 设置为 false 一旦某个消费者死亡，RabbitMq会重新发送它的消息给其他消费者(确保消息不丢失)
@@ -317,7 +317,7 @@
 
 ![](http://i.imgur.com/1nzoHb4.png)
 
-###4.1 声明一个新的队列 `task_queue`
+### 4.1 声明一个新的队列 `task_queue`
 
 
 RabbitMQ不允许你用不同的参数重新定义现有队列，并且会返回错误到试图这么做的任何的程序。有一个快速解决的方法 就是 重新声明一个名称不同的队列：
@@ -331,7 +331,7 @@ RabbitMQ不允许你用不同的参数重新定义现有队列，并且会返回
 **Worker:**
 ![](http://i.imgur.com/8Etubyj.png)
 
-###4.2 标记队列
+### 4.2 标记队列
 
 
 就此，我们确定即使 `RabbitMQ` 重启了 `task_queue` 队列也不会被丢失。
@@ -371,7 +371,7 @@ RabbitMQ不允许你用不同的参数重新定义现有队列，并且会返回
 > 如果你需要一个更强大的保证，你可以使用 [publisher confirms](https://www.rabbitmq.com/confirms.html ). 
 > 
 
-##5、Fair dispatch 公平转发
+## 5、Fair dispatch 公平转发
 
 你也许注意到调度仍然不像我们期望的那样准确地工作，
 
