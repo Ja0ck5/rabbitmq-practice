@@ -1,3 +1,15 @@
+title: RabbitMQ入门教程(二)
+categories:
+- RabbitMQ
+tags:
+- RabbitMQ
+- Java
+
+date: 12/3/2016 2:22:19 PM  
+---
+<Excerpt in index | 首页摘要> 
+
+
 
 # Work Queues 工作队列
 
@@ -23,6 +35,10 @@
 		factory.setHost("localhost");
 		Connection connection = factory.newConnection();
 		Channel channel = connection.createChannel();
+
+<!-- more -->
+<The rest of contents | 余下全文>
+
 
 		boolean durable = true;
 		channel.queueDeclare(TASK_QUEUE_NAME, durable, false, false, null);
@@ -420,7 +436,9 @@ Worker 接收代码中：
 
 
 
+### 教程源码：
 
+**教程源码在我的 github**：[https://github.com/Ja0ck5/rabbitmq-practice](https://github.com/Ja0ck5/rabbitmq-practice "https://github.com/Ja0ck5/rabbitmq-practice")
 
 
 

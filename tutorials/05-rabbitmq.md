@@ -9,6 +9,8 @@ date: 12/5/2016 12:09:06 AM
 ---
 <Excerpt in index | 首页摘要> 
 
+
+
 # Topics
 
 在前面的教程中，我们改进了我们的日志系统.而不是使用一个只能虚拟广播的扇出交换(`fanout exchange`).使用了直接交换 (`direct exchange`)，并且增加了有选择地接收日志消息的可能性。虽然使用直接交换(`direct exchange`)改善了我们的系统，它仍然有局限性-不能够基于多个标准路由。
@@ -25,20 +27,6 @@ date: 12/5/2016 12:09:06 AM
 
 <!-- more -->
 <The rest of contents | 余下全文>
-
-# Topics
-
-在前面的教程中，我们改进了我们的日志系统.而不是使用一个只能虚拟广播的扇出交换(`fanout exchange`).使用了直接交换 (`direct exchange`)，并且增加了有选择地接收日志消息的可能性。虽然使用直接交换(`direct exchange`)改善了我们的系统，它仍然有局限性-不能够基于多个标准路由。
-
-在我们的日志系统中，我们可能希望订阅不仅仅基于严重性的日志，而且能够基于发出的日志的来源。你可能从syslog UNIX工具知道这个概念，路由日志基于严重程度(severity[info][warning][critical])和设备(facility[auth][ cron][kern])
-
-我们也许想要监听不仅仅关于来自[cron]的关键错误，也要监听来自[kern]的所有的日志消息。这会给我们很大的伸缩性.
-
-要实现在我们的日志系统中，我们需要了解一个更复杂的主题交换(`topic exchange`)
-
-## 1、主题交换（`Topic exchange`）
-
-消息发送到一个主题交换(`topic exchange`),
 
 不能够用随意的 `routing_key` 它必须是单词列表，由点 . 分隔，
 

@@ -1,3 +1,16 @@
+title: RabbitMQ入门教程(三)
+categories:
+- RabbitMQ
+tags:
+- RabbitMQ
+- Java
+
+date: 12/3/2016 2:23:20 PM 
+---
+<Excerpt in index | 首页摘要> 
+
+
+
 # Publish/Subscribe
 
 在上一个教程中，我们创建了一个工作队列。后面的假设是基于工作队列:每个任务都被发送到确切的一个 Worker。
@@ -19,6 +32,10 @@
 回顾一下之前的概念：
 
 `生产者`  是发送消息的用户应用程序。
+
+<!-- more -->
+<The rest of contents | 余下全文>
+
 
 `队列`    是存储消息的缓冲区。
 
@@ -267,6 +284,11 @@
 ![](http://i.imgur.com/4egbVW7.png)
 
 两个都接都接收到所有有 `Emitlog` 发出的日志消息.
+
+
+### 教程源码：
+
+**教程源码在我的 github**：[https://github.com/Ja0ck5/rabbitmq-practice](https://github.com/Ja0ck5/rabbitmq-practice "https://github.com/Ja0ck5/rabbitmq-practice")
 
 
 
