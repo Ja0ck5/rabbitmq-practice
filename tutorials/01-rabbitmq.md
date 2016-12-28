@@ -1,3 +1,17 @@
+title: RabbitMQ入门教程(一)
+categories:
+- RabbitMQ
+tags:
+- RabbitMQ
+- Java
+
+date: 12/3/2016 2:19:56 PM 
+---
+<Excerpt in index | 首页摘要> 
+
+
+
+
 ## 1、准备
 
 ### 1.1 依赖
@@ -25,6 +39,9 @@
 > 启用监控管理，然后重启 RabbitMQ 服务器。 
 
     rabbitmq-server
+
+<!-- more -->
+<The rest of contents | 余下全文>
 
 打开网址` http://localhost:55672`
 用户名： `guest`
@@ -211,7 +228,7 @@
 <img src="http://i.imgur.com/6PROpWT.png" />
 </div>
 
-###4.5 消费者接收消息
+### 4.5 消费者接收消息
 
 > 接收器接收从 RabbitMQ队列 中推送过来的消息，
 > 
@@ -222,3 +239,8 @@
 <div align="center">
 <img src="http://i.imgur.com/AtlMbls.png" />
 </div>
+
+
+### 教程源码：
+
+**教程源码在我的 github**：[https://github.com/Ja0ck5/rabbitmq-practice](https://github.com/Ja0ck5/rabbitmq-practice "https://github.com/Ja0ck5/rabbitmq-practice")
