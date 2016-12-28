@@ -13,7 +13,7 @@ public class EmitLog {
 	private static final String EXCHANGE_NAME = "logs";
 
 	public static void main(String[] argv) throws java.io.IOException, TimeoutException {
-		//创建连接
+		//创建连 接 
 		ConnectionFactory factory = new ConnectionFactory();
 		factory.setHost("localhost");
 		Connection connection = factory.newConnection();
